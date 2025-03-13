@@ -45,14 +45,15 @@ module SubstitutionCipher
       # Create a lookup table by shuffling character values from 0-127
       lookup_table = (0..127).to_a.shuffle(random: rng)
 
-      encrypted = document.chars.map do |char|
+      encrypted = document.to_s.chars.map do |char|
         ord = char.ord
         if ord.between?(32, 126)
           lookup_table[ord].chr
         else
           char
         end
-        encrypted.join
+      end
+      encrypted.join
     end
 
     # Decrypts String document using integer key
@@ -72,7 +73,7 @@ module SubstitutionCipher
         reversed_lookup[encrypted_val] = original_ord
       end
 
-      decrypted = document.chars.map do |char|
+      decrypted = document.to_s.chars.map do |char|
         ord = char.ord
         if ord.between?(0, 127) && reversed_lookup.key?(ord)
           reversed_lookup[ord].chr
