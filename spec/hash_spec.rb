@@ -20,7 +20,7 @@ card_details = [
     net: 'Mastercard' }
 ]
 
-card_details.map do |c|
+cards = card_details.map do |c|
   CreditCard.new(c[:num], c[:exp], c[:name], c[:net])
 end
 
@@ -28,7 +28,7 @@ describe 'Test hashing requirements' do
   describe 'Check hashes are consistently produced' do
     # TODO: Check that each card produces the same hash if hashed repeatedly
     it 'should be consistent' do
-      card_details.each do |c|
+      cards.each do |c|
         _(c.hash).must_equal c.hash
       end
     end
@@ -37,7 +37,7 @@ describe 'Test hashing requirements' do
   describe 'Check for unique hashes' do
     # TODO: Check that each card produces a different hash than other cards
     it 'should have unique hashes' do
-      hashes = card_details.map(&:hash)
+      hashes = cards.map(&:hash)
       _(hashes.uniq.length).must_equal card_details.length
     end
   end

@@ -48,7 +48,7 @@ class CreditCard
     #   - Produce a hash (using default hash method) of the credit card's
     #     serialized contents.
     #   - Credit cards with identical information should produce the same hash
-    RbNaCl::Hash.sha256(to_json)
+    RbNaCl::Hash.sha256(to_json).bytes
   end
 
   # return a cryptographically secure hash
