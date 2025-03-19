@@ -73,7 +73,7 @@ module SubstitutionCipher
         reversed_lookup[encrypted_val] = original_ord
       end
 
-      decrypted = document.chars.map do |char|
+      decrypted = document.to_s.chars.map do |char|
         ord = char.ord
         if ord.between?(0, 127) && reversed_lookup.key?(ord)
           reversed_lookup[ord].chr
