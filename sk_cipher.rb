@@ -3,6 +3,7 @@
 require 'rbnacl'
 require 'base64'
 
+# encrypt/decrypt using symmetric cipher
 module ModernSymmetricCipher
   def self.generate_new_key
     # TODO: Return a new key as a Base64 string

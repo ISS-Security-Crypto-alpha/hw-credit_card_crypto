@@ -9,5 +9,5 @@ gem 'rubocop'
 # Add all the gems your code and tests use here!
 
 # For ModernSymmetricCipher
-gem 'rbnacl'
 gem 'base64'
+gem 'rbnacl'
