@@ -8,3 +8,7 @@ gem 'minitest-rg'
 gem 'rubocop'
 gem 'rbnacl'
 # Add all the gems your code and tests use here!
+
+# For ModernSymmetricCipher
+gem 'rbnacl'
+gem 'base64'
